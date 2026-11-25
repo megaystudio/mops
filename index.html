@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MOPS - Megay Studio</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f2744"><title>MOPS - Megay Studio</title>
 <script src="config.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script><script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>:root{--navy:#0f2744;--bg:#f4f6f9;--acc:#e0a100;--g:#1a9d55;--a:#e0a100;--r:#d33}*{box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif;background:var(--bg);color:#1c2733}
 #app{display:none;min-height:100vh}#side{background:var(--navy);color:#fff;width:210px;position:fixed;top:0;bottom:0;overflow:auto;padding:10px}#side a{display:block;padding:8px 10px;color:#cfd8e3;cursor:pointer;border-radius:6px}#side a:hover,#side a.on{background:color-mix(in srgb,var(--navy),#fff 15%);color:#fff}th{border-bottom:2px solid var(--acc)}.logo img{max-width:100%;max-height:60px}.logo:has(img){border:0}.man{max-width:900px;line-height:1.55}.man td,.man th{white-space:normal}.man table{margin:8px 0}.man code{background:#eef;padding:1px 4px}
@@ -6,9 +6,34 @@
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}.k b{font-size:20px;display:block}.GREEN{border-left:5px solid var(--g)}.AMBER{border-left:5px solid var(--a)}.RED{border-left:5px solid var(--r)}.NA{border-left:5px solid #bbb}
 table{border-collapse:collapse;width:100%;background:#fff}td,th{padding:6px 8px;border-bottom:1px solid #e4e8ee;text-align:left;white-space:nowrap}.sc{overflow:auto}button{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;margin:2px}button.s{background:#6b7c93}button.d{background:var(--r)}
 input,select{padding:6px;border:1px solid #c5cdd8;border-radius:6px;width:100%}label{font-size:12px;color:#445}.f{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}#msg{position:fixed;right:12px;top:12px;padding:10px 14px;border-radius:6px;color:#fff;display:none;z-index:9}
-@media(max-width:700px){#side{position:static;width:auto;display:flex;flex-wrap:wrap}#main{margin:0}}</style></head><body>
+@media(max-width:700px){#side{position:static;width:auto;display:flex;flex-wrap:wrap}#main{margin:0}}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+.card{border-radius:14px;box-shadow:0 2px 12px #0f274414;border:1px solid #e8ecf2}
+button{border-radius:10px;font-weight:600;transition:.15s}button:active{transform:scale(.97)}
+input,select{border-radius:10px;font-size:16px;min-height:42px;background:#fff}input:focus,select:focus{outline:2px solid var(--acc);border-color:transparent}
+.card>input{margin:0 6px 8px 0}.card>input[type=date]{width:auto;display:inline-block}
+#side{background:linear-gradient(180deg,var(--navy),color-mix(in srgb,var(--navy),#000 28%))}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;background:#e5e9f0;color:#445}
+.s_SUBMITTED{background:#dbeafe;color:#1d4ed8}.s_REVIEWED{background:#fef3c7;color:#92400e}.s_APPROVED{background:#dcf5e5;color:#157347}.s_CLOSED{background:#1f2937;color:#fff}
+#top,#ov{display:none}
+@media(max-width:768px){body{background:#eef1f6}
+#top{display:flex;align-items:center;gap:10px;position:fixed;top:0;left:0;right:0;z-index:20;height:calc(54px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 12px 0;background:var(--navy);color:#fff;box-shadow:0 2px 10px #0003}
+#top button{background:#ffffff22;font-size:20px;width:40px;height:40px;padding:0;margin:0}#tt{font-weight:700;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#side{position:fixed;top:0;bottom:0;left:0;width:78%;max-width:300px;z-index:40;transform:translateX(-102%);transition:transform .25s;padding:calc(14px + env(safe-area-inset-top)) 12px 20px;display:block}
+body.nav #side{transform:none}body.nav #ov{display:block;position:fixed;inset:0;background:#0007;z-index:30}#side a{padding:12px;font-size:15px}
+#main{margin:0;padding:calc(66px + env(safe-area-inset-top)) 12px calc(24px + env(safe-area-inset-bottom))}h2{font-size:20px;margin:6px 0 12px}
+.grid{grid-template-columns:repeat(2,1fr)!important;gap:8px}#main .grid[style]{grid-template-columns:1fr!important}.k b{font-size:19px}.f{grid-template-columns:1fr}
+.card>input,.card>input[type=date]{width:100%;display:block;margin:0 0 8px}button{min-height:42px;padding:9px 14px}
+#msg{left:12px;right:12px;top:auto;bottom:calc(16px + env(safe-area-inset-bottom));text-align:center}#login{margin:8vh 12px!important;max-width:none!important}
+.sc{overflow:visible}table.rz,table.rz tbody{display:block;background:none}table.rz tr:first-child{display:none}
+table.rz tr{display:block;background:#fff;border-radius:14px;padding:6px 12px;margin:0 0 10px;box-shadow:0 1px 6px #0f274418}
+table.rz td{display:flex;justify-content:space-between;gap:12px;border:0;border-bottom:1px solid #f0f2f6;padding:8px 0;white-space:normal;text-align:right;word-break:break-word}
+table.rz td:last-child{border:0;flex-wrap:wrap;justify-content:flex-end}table.rz td:empty{display:none}
+table.rz td::before{content:attr(data-label);color:#7b8794;font-size:12px;text-align:left;flex:none;max-width:45%}
+table.rz td:nth-child(n+7):not(:nth-last-child(-n+2)){display:none}}
+</style></head><body>
 <div id="msg"></div><div id="login" style="max-width:360px;margin:12vh auto;text-align:center" class="card"><div class="logo"></div><h2 id="lname">MOPS</h2><p>Megay Operations Performance System</p><div id="gbtn"></div><p id="lerr" style="color:#d33"></p></div>
-<div id="app"><div id="side"></div><div id="main"></div></div>
+<div id="app"><div id="top"><button id="mb" aria-label="Menu">☰</button><span id="tt">MOPS</span></div><div id="ov"></div><div id="side"></div><div id="main"></div></div>
 <script>
 const C=window.MOPS;let TOK='',ME=null,S={},cur='';const $=s=>document.querySelector(s);
 const h=(t,a={},...k)=>{const e=document.createElement(t);for(const x in a)x=='on'?Object.assign(e,a[x]):e.setAttribute(x,a[x]);k.flat().forEach(c=>e.append(c==null?'':c));return e};
@@ -63,7 +88,7 @@ let CH=[];async function drawCharts(from,to,ch){CH.forEach(c=>c.destroy());CH=[]
  mk('Breakdown per Hari',{type:'bar',data:{labels:L,datasets:[{label:'Breakdown',data:T.map(x=>x.bd),backgroundColor:R}]},options:{scales:{y:{ticks:{precision:0}}}}})}catch(e){msg(e,false)}}
 
 let BR={name:'',logo:'',p:'',a:''},BRX=false;
-function applyBrand(){const r=document.documentElement.style;if(BR.p)r.setProperty('--navy',BR.p);if(BR.a)r.setProperty('--acc',BR.a);document.title=(BR.name||'MOPS')+' - MOPS';const ln=$('#lname');if(ln)ln.textContent=BR.name||'MOPS';
+function applyBrand(){const r=document.documentElement.style;if(BR.p)r.setProperty('--navy',BR.p);if(BR.a)r.setProperty('--acc',BR.a);document.title=(BR.name||'MOPS')+' - MOPS';const tt=$('#tt');if(tt)tt.textContent=BR.name||'MOPS';const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.content=BR.p||'#0f2744';const ln=$('#lname');if(ln)ln.textContent=BR.name||'MOPS';
  document.querySelectorAll('.logo').forEach(e=>e.replaceChildren(BR.logo?h('img',{src:BR.logo,alt:'logo'}):document.createTextNode(BR.name||'MOPS')));try{localStorage.setItem('mops_br',JSON.stringify(BR))}catch(e){}}
 async function loadBrand(){try{const r=await jp({a:'list',t:'APP_SETTINGS'}),x=r.rows.find(y=>y.SettingKey=='Branding');BRX=!!x;if(x)BR=Object.assign(BR,JSON.parse(x.SettingValue))}catch(e){}applyBrand()}
 function logoFile(f,cb){const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{let w=Math.min(300,im.width||300),u='';for(let k=0;k<6;k++){const hh=Math.max(1,Math.round((im.height||w)*w/(im.width||w))),cv=h('canvas');cv.width=w;cv.height=hh;cv.getContext('2d').drawImage(im,0,0,w,hh);u=cv.toDataURL('image/png');if(u.length<40000)break;w=Math.round(w*.75)}
@@ -80,4 +105,8 @@ function md(s){const e=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;'),n=x=>e(x)
  else if(l.startsWith('|')){const R=[];while(i<L.length&&L[i].startsWith('|'))R.push(L[i++]);R.splice(1,1);o+='<table>'+R.map((r,j)=>'<tr>'+r.split('|').slice(1,-1).map(c=>'<t'+(j?'d':'h')+'>'+n(c.trim())+'</t'+(j?'d':'h')+'>').join('')+'</tr>').join('')+'</table>'}
  else if(/^(\d+\.|-) /.test(l)){const ol=/^\d/.test(l);o+=ol?'<ol>':'<ul>';while(i<L.length&&/^(\d+\.|-) /.test(L[i]))o+='<li>'+n(L[i++].replace(/^(\d+\.|-) /,''))+'</li>';o+=ol?'</ol>':'</ul>'}else{if(l.trim())o+='<p>'+n(l)+'</p>';i++}}return o}
 async function help(){const d=h('div',{class:'card man'},'Memuat panduan...');$('#main').replaceChildren(h('h2',{},'Panduan Pengguna'),d);try{const r=await fetch('docs/MANUAL.md');if(!r.ok)throw 0;d.innerHTML=md(await r.text())}catch(e){d.textContent='Panduan belum diunggah ke GitHub (file docs/MANUAL.md).'}}
+
+$('#mb').onclick=()=>document.body.classList.toggle('nav');$('#ov').onclick=()=>document.body.classList.remove('nav');$('#side').addEventListener('click',e=>{if(e.target.closest('a'))document.body.classList.remove('nav')});
+new MutationObserver(()=>document.querySelectorAll('#main table:not(.rz)').forEach(t=>{if(t.closest('.man')||!t.rows.length)return;t.classList.add('rz');const hs=[...t.rows[0].cells].map(x=>x.textContent);
+ [...t.rows].slice(1).forEach(r=>[...r.cells].forEach((c,j)=>{const l=hs[j]||'';c.dataset.label=l;if(l=='Status'&&c.textContent&&c.firstChild&&c.firstChild.nodeType==3)c.replaceChildren(h('span',{class:'chip s_'+c.textContent},c.textContent))}))})).observe($('#main'),{childList:true,subtree:true});
 </script></body></html>
