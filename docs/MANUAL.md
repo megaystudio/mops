@@ -8,7 +8,7 @@
 1. Buka alamat aplikasi dari Super Admin (bentuk `https://nama.github.io/mops/`) di Chrome, Edge, atau Safari versi terbaru.
 2. Tidak ada yang perlu diinstal. Agar mudah dibuka: di HP pilih menu browser → **Tambahkan ke layar utama**; di komputer pilih menu Chrome → **Simpan dan bagikan → Buat pintasan**.
 3. **Mengunduh data:** menu **Reports** → pilih jenis dan periode → tombol **Excel** atau **PDF**. Setiap tabel data punya tombol **CSV** dan **Excel**.
-4. Di HP, tampilan menu berada di bagian atas halaman; gulir untuk melihat konten.
+4. Di HP/Android, ketuk tombol **☰** di kiri atas untuk membuka menu. Data tampil sebagai kartu yang mudah digulir; kolom lengkap bisa dilihat saat **Edit**, di Excel, atau di laptop.
 ## 3. Pengaturan Awal (Super Admin)
 Lakukan berurutan, sekali saja:
 1. **Personalisasi** (menu Personalisasi, hanya Admin/Super Admin): isi nama perusahaan, unggah logo, pilih tema warna → **Simpan**. Berlaku untuk semua pengguna.
